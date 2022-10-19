@@ -1,0 +1,17 @@
+{
+    "name": "ReferenceSharing.ReferencedComponents",
+    "rootNamespace": "",
+    "references": [
+        "GUID:54f492f990c14704d8a7e40cb85b9a55",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
