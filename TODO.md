@@ -1,7 +1,7 @@
 ## Bugfix
 
 - [x] fix level not loading
-- [ ] fix timer not visible
+- [ ] fix hud
 - [ ]
 
 ## Cleaner code
