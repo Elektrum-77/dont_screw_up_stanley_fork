@@ -35,7 +35,7 @@ public class LevelSelector : MonoBehaviour
     {
         var buttons = getButtons();
         int usedButton = maxLevel - pageStartingLevelCount;
-        for (int i = 0; i <= buttons.Length; i++)
+        for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].gameObject.SetActive((i + pageStartingLevelCount) < usedButton);
         }
@@ -47,7 +47,6 @@ public class LevelSelector : MonoBehaviour
         foreach (var button in getButtons())
         {
             button.Level = level++;
-            Debug.Log(level);
         }
     }
 
@@ -59,13 +58,13 @@ public class LevelSelector : MonoBehaviour
         SetButtonsActive();
     }
 
-    void nextPage()
+    public void nextPage()
     {
         pageStartingLevelCount += levelPerPage;
         updatePageButtons();
     }
 
-    void previousPage()
+    public void previousPage()
     {
         pageStartingLevelCount -= levelPerPage;
         updatePageButtons();
@@ -77,9 +76,27 @@ public class LevelSelector : MonoBehaviour
         updatePageButtons();
     }
 
-    public void OpenScene()
+    private static string getLevelName(int level)
     {
-        SceneManager.LoadScene("HUD");
-        SceneManager.LoadScene("Level_1");
+        return "Level_" + level.ToString();
+    }
+
+    public static void OpenLevel(int level)
+    {
+        var levelName = getLevelName(level);
+        Debug.Log("Loading " + levelName);
+        SceneManager.LoadScene(levelName);
+        SceneManager.LoadScene("HUD", LoadSceneMode.Additive);
+        GameObject.FindGameObjectWithTag("MainCamera").SetActive(false);
+    }
+    
+    public static void CloseLevel(int level)
+    {
+        var levelName = getLevelName(level);
+        Debug.Log("Unloading " + levelName);
+        SceneManager.UnloadSceneAsync(levelName);
+        SceneManager.UnloadSceneAsync("HUD");
+        SceneManager.LoadScene("LevelSelection");
+        GameObject.FindGameObjectWithTag("MainCamera").SetActive(true);
     }
 }

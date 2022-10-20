@@ -3,7 +3,12 @@ guid: 56c1adc2abd92ef4b825b5434f439646
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - nextPageButton: {instanceID: 0}
+  - previousPageButton: {instanceID: 0}
+  - grid: {instanceID: 0}
+  - buttonPrefab: {fileID: 7915495494154395560, guid: 0543952ef04460c4cbd96807828a5a62,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
